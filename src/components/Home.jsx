@@ -39,7 +39,8 @@ class Home extends React.Component {
             departure: this.state.departure,
             duration: this.state.duration,
           },
-        }
+        },
+        { withCredentials: true }
       )
       this.setState({
         planCount: response.data.planCount,
