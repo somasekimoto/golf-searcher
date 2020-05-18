@@ -39,16 +39,15 @@ class Home extends React.Component {
             departure: this.state.departure,
             duration: this.state.duration,
           },
-        },
-        { withCredentials: true }
+        }
       )
       this.setState({
-        planCount: response.data.planCount,
+        planCount: response.data.count,
         plans: response.data.plans,
       })
       this.setState({ loading: false })
-    } catch (e) {
-      this.setState({ error: e })
+    } catch (error) {
+      this.setState({ error: error })
     }
   }
 
