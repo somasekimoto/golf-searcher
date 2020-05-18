@@ -17,3 +17,8 @@ https://master.d2t2s2ypbks5dq.amplifyapp.com/
 - スクールで学習した Ruby と AWS の理解をさらに深める。特に、Lambda, Amplify, API Gateway, RDS など、複数の AWS のサービスを利用して、実装してみたかったから。
 
 - Rakuten, Google Maps などの外部の API から取得したデータを利用したかったから。
+
+## 苦労したところ
+
+- lambda_function.rb に Lambda 関数に処理させる際、RakutenAPI と GoogleMapsAPI の値を両方利用した記述をする必要があったため、理解に苦しんだ。
+- API Gateway に
