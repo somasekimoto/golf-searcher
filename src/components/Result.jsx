@@ -1,23 +1,25 @@
-import React from "react";
-import "./Common.css";
+// Import Package
+import React from "react"
+// Import Styles
+import "./Common.css"
 
 const Result = ({ plans, planCount, error }) => {
+  // error handling
   if (error) {
     return (
       <div className="wrapper">
         <div className="ui negative message">
           <i className="close icon"></i>
-          <div className="header">
-            エラーが発生しました。
-          </div>
+          <div className="header">エラーが発生しました。</div>
           検索条件を見直すか、管理者にお問い合わせください。
         </div>
       </div>
-    );
+    )
   }
-  
+
+  // if plans array is empty
   if (!plans) {
-    return <div></div>;
+    return <div></div>
   }
 
   if (planCount === 0) {
@@ -31,7 +33,7 @@ const Result = ({ plans, planCount, error }) => {
       </div>
     )
   }
-  const results = plans.map(plan => {
+  const results = plans.map((plan) => {
     return (
       <div className="item" key={plan.plan_id}>
         <div className="image">
@@ -48,7 +50,8 @@ const Result = ({ plans, planCount, error }) => {
               </div>
               <div className="statistic">
                 <div className="value">
-                  <i className="yen sign icon"></i> {plan.price.toLocaleString()}
+                  <i className="yen sign icon"></i>{" "}
+                  {plan.price.toLocaleString()}
                 </div>
               </div>
               <div className="statistic">
@@ -77,10 +80,10 @@ const Result = ({ plans, planCount, error }) => {
           </div>
         </div>
       </div>
-    );
-  });
+    )
+  })
 
   return <div>{results}</div>
-};
+}
 
-export default Result;
+export default Result
