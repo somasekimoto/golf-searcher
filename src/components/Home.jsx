@@ -1,20 +1,26 @@
+// Import Package
 import React from "react"
-import "./Common.css"
-import "semantic-ui-css/semantic.min.css"
 import DatePicker, { registerLocale } from "react-datepicker"
 import ja from "date-fns/locale/ja"
-import "react-datepicker/dist/react-datepicker.css"
 import addDays from "date-fns/addDays"
 import axios from "axios"
 import format from "date-fns/format"
+// Import Styles
+import "./Common.css"
+import "semantic-ui-css/semantic.min.css"
+import "react-datepicker/dist/react-datepicker.css"
+// Import Component
 import Result from "./Result"
 import Loading from "./Loading"
 
+// To set default date
 const Today = new Date()
+
 registerLocale("ja", ja)
 
 class Home extends React.Component {
   state = {
+    // Set the date 14 days later from today
     date: addDays(new Date(), 14),
     budget: "12000",
     departure: "1",
@@ -27,9 +33,11 @@ class Home extends React.Component {
 
   onFormSubmit = async (event) => {
     try {
+      // To stop submit event & have loading component appeared
       event.preventDefault()
       this.setState({ loading: true })
 
+      // To get info from DynamoDB in AWS according to input_data
       const response = await axios.get(
         "https://zbfiblk00k.execute-api.us-east-1.amazonaws.com/production/golf-courses",
         {
@@ -41,11 +49,14 @@ class Home extends React.Component {
           },
         }
       )
+      // Use response
       this.setState({
         planCount: response.data.count,
         plans: response.data.plans,
       })
+      // Do not forget stop Loading Com.
       this.setState({ loading: false })
+      // return error if something wrong happen in try
     } catch (error) {
       this.setState({ error: error })
     }
