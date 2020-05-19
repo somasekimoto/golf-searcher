@@ -6,7 +6,8 @@
 </p>
 このアプリケーションは、RakutenAPI と GoogleMapsAPI を利用して、東京近郊のゴルフ場を検索し、そこまでの距離と価格を表示させるアプリです。
 
-Techpit(https://www.techpit.jp/)の教材を購入して読みながら制作しました。
+Techpit(https://www.techpit.jp/)
+の教材を購入して読みながら制作しました。
 
 ## URL
 
